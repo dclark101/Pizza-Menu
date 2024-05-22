@@ -13,7 +13,7 @@ class MainWindow(QWidget):
         self.setMinimumSize(300, 800)
         self.setWindowTitle("Food Order GUI")
         self.setUpMainWindow()
-        self.show()
+        self.show() #
 
 
     def mainGridLayout(self):
