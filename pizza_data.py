@@ -1,0 +1,2 @@
+toppings = ["Pepperoni", "Sausage", "Bacon", "Canadian Bacon", "Beef", "Pineapple", "Olive", "Tomato", "Green Pepper", "Mushroom", "Onion", "Spinach", "Cheese"]
+crusts = ["Hand-tossed", "Flat", "Stuffed"]
