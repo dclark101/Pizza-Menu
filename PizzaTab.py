@@ -48,36 +48,45 @@ class PizzaTab(QWidget):
 
     def chooseCrustLayout(self):
         """Vertical layout for choose curst portion of applcation"""
-        choose_crust_v_box = QVBoxLayout()
+        crust_v_box = QVBoxLayout()
 
-        choose_crust_label = QLabel("CHOOSE YOUR CRUST")
-        choose_crust_label.setObjectName("Crust_Label")
+        crust_gb = QGroupBox("CHOOSE YOUR CRUST")
 
-        choose_crust_v_box.addWidget(choose_crust_label)
+        # choose_crust_label = QLabel("CHOOSE YOUR CRUST")
+        # choose_crust_label.setObjectName("Crust_Label")
+
+        # choose_crust_v_box.addWidget(choose_crust_label)
 
         for crust in crusts:
             crust_rb = QRadioButton(crust)
-            choose_crust_v_box.addWidget(crust_rb)
+            
+            crust_v_box.addWidget(crust_rb)
 
-        return choose_crust_v_box
+
+        crust_gb.setLayout(crust_v_box)
+
+        return crust_gb
 
     def chooseToppingsLayout(self):
         """Vertical layout for choose topping portion of application"""
-        choose_topping_v_box = QVBoxLayout()
-        topping_rb_group = QButtonGroup()
+        topping_v_box = QVBoxLayout()
+        topping_gb = QGroupBox("CHOOSE YOUR TOPPINGS")
+        # topping_rb_group = QButtonGroup()
 
-        choose_topping_label = QLabel("CHOOSE YOUR TOPPINGS")
+        # choose_topping_label = QLabel("CHOOSE YOUR TOPPINGS")
 
-        choose_topping_v_box.addWidget(choose_topping_label)
+        # topping_v_box.addWidget(choose_topping_label)
 
         for topping in toppings:
             topping_rb = QRadioButton(topping)
             topping_rb.setAutoExclusive(False)
 
-            topping_rb_group.addButton(topping_rb)
-            choose_topping_v_box.addWidget(topping_rb)
+            # topping_rb_group.addButton(topping_rb)
+            topping_v_box.addWidget(topping_rb)
 
-        return choose_topping_v_box
+        topping_gb.setLayout(topping_v_box)
+
+        return topping_gb
 
     # Might switch to QGridBox() layout
     def mainLayout(self):
@@ -87,7 +96,7 @@ class PizzaTab(QWidget):
         self.setStyleSheet(styles)
 
         main_v_box.addLayout(self.buildPizzaLayout())
-        main_v_box.addLayout(self.chooseCrustLayout())
-        main_v_box.addLayout(self.chooseToppingsLayout())
+        main_v_box.addWidget(self.chooseCrustLayout())
+        main_v_box.addWidget(self.chooseToppingsLayout())
 
         return main_v_box

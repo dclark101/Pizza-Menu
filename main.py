@@ -6,6 +6,7 @@ from PyQt6.QtWidgets import (
     QGridLayout,
     QVBoxLayout,
     QPushButton,
+    QGroupBox
 )
 from PyQt6.QtCore import Qt
 from PizzaTab import PizzaTab
