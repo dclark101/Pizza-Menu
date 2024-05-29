@@ -6,9 +6,11 @@ from PyQt6.QtWidgets import (
     QGridLayout,
     QVBoxLayout,
     QPushButton,
-    QGroupBox
+    QGroupBox,
+    QSizePolicy
+    
 )
-from PyQt6.QtCore import Qt
+from PyQt6.QtCore import Qt, QSize
 from PizzaTab import PizzaTab
 from YourOrder import YourOrder
 from styles import styles
@@ -33,15 +35,16 @@ class MainWindow(QWidget):
         pizza_tab_v_box = PizzaTab().mainLayout()
         your_order_v_box = YourOrder()
         add_to_order_btn = QPushButton("Add To Order")
-        add_to_order_btn.setMinimumWidth(20)
+        add_to_order_btn.setSizePolicy(QSizePolicy())
 
         self.main_v_box.setContentsMargins(20, 20, 20, 20)
 
         main_tab = QTabBar()
         main_tab.addTab("Pizza")
         main_tab.addTab("Wings")
+        main_tab.setFixedSize(150, 30)
 
-        self.main_v_box.addWidget(main_tab)
+        self.main_v_box.addWidget(main_tab, 0, Qt.AlignmentFlag.AlignHCenter)
         self.main_v_box.addLayout(pizza_tab_v_box)
         self.main_v_box.addWidget(add_to_order_btn)
 
